@@ -87,11 +87,11 @@ $ npm start
 - [Stack Overflow](https://stackoverflow.com/questions/21069813/mongoose-multiple-query-populate-in-a-single-call) - mutiple query populates in single call
 - [Stack Overflow](https://stackoverflow.com/questions/67264632/mongoose-sorting-by-createdat) - mongoose sorting by createdAt
 - [Express Docs](http://expressjs.com/en/resources/middleware/multer.html) - multer middleware
-- [Stack Overflow](https://stackoverflow.com/questions/27213418/node-js-and-multer-handle-the-destination-of-the-uploaded-file-in-callback-fun)
+- [Stack Overflow](https://stackoverflow.com/questions/27213418/node-js-and-multer-handle-the-destination-of-the-uploaded-file-in-callback-fun) - destination of uploaded file multer
 - [Stack Overflow](https://stackoverflow.com/questions/58474765/how-to-call-multer-middleware-inside-a-controller-in-nodejs) - multer and controllers
-- [Stack Overflow](https://stackoverflow.com/questions/52206055/nodejs-multer-diskstorage-not-working-why-destination-targeting-temp-folder-an)
-- [Stack Overflow](https://stackoverflow.com/questions/69347579/multer-didnt-work-for-me-not-storing-image-in-local-folder-or-database)
-- [Positronx](https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/)
+- [Stack Overflow](https://stackoverflow.com/questions/52206055/nodejs-multer-diskstorage-not-working-why-destination-targeting-temp-folder-an) - destination troubleshooting multer
+- [Stack Overflow](https://stackoverflow.com/questions/69347579/multer-didnt-work-for-me-not-storing-image-in-local-folder-or-database) - storing image in local folder
+- [Positronx](https://www.positronx.io/react-file-upload-tutorial-with-node-express-and-multer/) - file upload tutorial with express & multer
 - [Stack Overflow](https://stackoverflow.com/questions/33976006/multer-wont-recognize-files-with-put) - multer & put
 - [Stack Overflow](https://stackoverflow.com/questions/4851595/how-to-resolve-the-c-fakepath) - fakepath in image file name
 - [Stack Overflow](https://stackoverflow.com/questions/29317045/why-i-cant-directly-set-console-log-as-callback-function) - console.log and callback functions
