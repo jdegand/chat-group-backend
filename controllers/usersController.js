@@ -24,9 +24,7 @@ const updateUser = async (req, res) => {
         return res.status(204).json({ "message": `No user matches ID ${req.params.id}.` });
     }
 
-    const url = req.protocol + '://' + req.get('host')
-
-    const file = req.file;
+    const url = req.protocol + '://' + req.get('host');
 
     user.picture = url + '/uploads/' + req.file.filename;
 
