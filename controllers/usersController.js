@@ -63,24 +63,7 @@ const updateUser = async (req, res) => {
 
 }
 
-/* something's off - frontend and backend mismatch - name not updating - problem with handleChanges?
-const getUserByName = async (req,res) => {
-    try {
-        if (!req?.params?.name) return res.status(400).json({ "message": 'User Name required' });
-        const user = await User.findOne({ name: req.params.name }).select("-password").exec();
-        if (!user) {
-            return res.status(204).json({ 'message': `User Name ${req.params.name} not found` });
-        }
-        res.json(user);
-    } catch(err) {
-        res.status(500).json({ 'message': err.message });
-    }
-
-}
-*/
-
 module.exports = {
     getUser,
     updateUser
-    //getUserByName
 }
