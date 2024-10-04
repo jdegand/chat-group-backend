@@ -22,7 +22,7 @@
 - cookie-parser
 - cors
 - express
-- jsonwebtoken    
+- jsonwebtoken
 - mongoose
 - multer
 
@@ -36,22 +36,22 @@ This application/site was created as a submission to a [DevChallenges](https://d
 - messages and channels are open - better to have a way to see the chat before signing in
 - need another server (socket.io) ? to have chat group be realtime across users - don't think so - because useEffect will update the view when channels and messages change
 - Promise.all() might be needed for multiple route calls in some functions - async - have to worry about order of results
-- add helmet ?
-- testing 
+- add helmet?
+- testing
 - seeding the database vs using my hacky way of creating a welcome channel if it doesn't exist
 - "select: false" in model vs removing field with .select('-password') vs removing field in populate call - what is best approach?
 - password field may be sent back in some calls - intermediate step - password forwarded along with userInfo then removed later - should exlude first and then forward or overly concerned - password is hashed and protected by jwt
 - can't pass two parameters to same route - express cant differentiate between them - need to add word in between i.e. /:channel/:id vs /:channel/id/:id
-- channel controller has a very convulted route because of that and it could be cleaned up 
-- sorting with mongoose vs sorting response.data in the client - in React, use memo on the data. 
-- multer and controllers don't mix
+- channel controller has a very convulted route because of that and it could be cleaned up
+- sorting with mongoose vs sorting response.data in the client - in React, use memo on the data.
+- Multer and controllers don't mix
 - controllers considered an anti-pattern ?
-- getting file path is difficult - fakepath issues - can't get the file to save - the folder will be created - dir name in multer middleware
+- getting file path is difficult - fakepath issues - can't get the file to save - the folder will be created - dir name in Multer middleware
 - had issues with multer callback syntax - console.logs need to be inside functions inside callbacks
 - Added fs unlink logic to remove photos that are no longer tied to user profiles
-- Read about changes coming to Multer (2.0) so need to look out for that  
-- Profile pictures come from [freepik](https://freepik.com).  Check below for links - the majority of pictures belong to the same series.
-- Added `public/uploads` to gitignore  
+- Read about changes coming to Multer (2.0) so need to look out for that.  
+- Profile pictures are sourced from [freepik](https://freepik.com).  Check for links below - the majority of pictures belong to the same series.
+- Added `public/uploads` to `.gitignore`.  
 
 ## How To Use
 
@@ -59,7 +59,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/jdegand/chat-group-backend
+$ git clone https://github.com/jdegand/chat-group-backend.git
 
 # Install dependencies
 $ npm install

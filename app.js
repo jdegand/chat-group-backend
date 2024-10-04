@@ -3,13 +3,11 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-//const verifyJWT = require('./middleware/verifyJWT');
 const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 
-//const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const registerRouter = require('./routes/register');
 const authRouter = require('./routes/auth');

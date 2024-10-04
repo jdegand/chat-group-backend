@@ -3,14 +3,6 @@ const path = require('path');
 
 const User = require('../models/User');
 
-/*
-const getAllUsers = async (req, res) => {
-    const users = await User.find().select("-password");
-    if (!users) return res.status(204).json({ 'message': 'No users found' });
-    res.json(users);
-}
-*/
-
 const getUser = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ "message": 'User ID required' });
     const user = await User.findById(req.params.id).select("-password");
@@ -21,7 +13,7 @@ const getUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    
+
     if (!req?.params?.id) {
         return res.status(400).json({ 'message': 'ID parameter is required.' });
     }
@@ -37,7 +29,7 @@ const updateUser = async (req, res) => {
     const file = req.file;
 
     user.picture = url + '/uploads/' + req.file.filename;
-    
+
     await user.save()
 
     // add below code to callback of save ? or break out into separate function ?
@@ -51,20 +43,21 @@ const updateUser = async (req, res) => {
     // if photo is not found tied to a user profile, it should be removed from uploads folder
     fs.readdir('public/uploads', (err, files) => {
         if (err)
-        console.log(err);
+            console.log(err);
         else {
-        files.forEach(file => {
-            // console.log(file); have to match file format from above
-            if(!profilePictures.includes(`http://localhost:3500/uploads/${file}`)){
-                const filepath = `./public/uploads/${file}`;
-                fs.unlink(filepath, err => {
-                    if (err) {
-                      console.error(err);
-                    } else {
-                      console.log(`Deleted orphaned profile picture`);
-                }})
-            }
-        })
+            files.forEach(file => {
+                // have to match file format from above
+                if (!profilePictures.includes(`http://localhost:3500/uploads/${file}`)) {
+                    const filepath = `./public/uploads/${file}`;
+                    fs.unlink(filepath, err => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log(`Deleted orphaned profile picture`);
+                        }
+                    })
+                }
+            })
         }
     })
 
@@ -89,7 +82,7 @@ const getUserByName = async (req,res) => {
 */
 
 module.exports = {
-    getUser, 
+    getUser,
     updateUser
     //getUserByName
 }
