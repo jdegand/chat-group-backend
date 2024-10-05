@@ -1,7 +1,7 @@
 <h1 align="center">Chat Group Backend</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="https://legacy.devchallenges.io/challenges/UgCqszKR7Q7oqb4kRfI0" target="_blank">Devchallenges.io</a>.
+   Solution for a challenge from  <a href="https://web.archive.org/web/20231130042247/https://legacy.devchallenges.io/challenges/UgCqszKR7Q7oqb4kRfI0" target="_blank">Devchallenges.io</a>.
 </div>
 
 ## Table of Contents
@@ -9,6 +9,7 @@
 - [Overview](#overview)
   - [Built With](#built-with)
 - [Features](#features)
+- [Thoughts](#thoughts)
 - [Continued Development](#continued-development)
 - [How to use](#how-to-use)
 - [Useful Resources](#useful-resources)
@@ -28,30 +29,33 @@
 
 ## Features
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://legacy.devchallenges.io/challenges/UgCqszKR7Q7oqb4kRfI0) was to build an application to complete the given user stories.
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://web.archive.org/web/20231130042247/https://legacy.devchallenges.io/challenges/UgCqszKR7Q7oqb4kRfI0) was to build an application to complete the given user stories. **Note**: The previous design document may be incomplete, as you need to find an archived version of the challenge as all `legacy` challenges have had their documentation removed from DevChallenges.
+
+## Thoughts
+
+- I left many routes open - could add `JWTVerifys` to all routes vs. just the mutate routes (post, put, delete).
+- Messages and Channels are open. You can see the chat before signing in.
+- Need another server, `socket.io`, to have chat group be realtime across users - don't think so - because useEffect will update the view when channels and messages change
+- `Promise.all()` might be needed for multiple route calls in some functions - async - have to worry about order of results.
+- Design choice: seeding the database vs. using my hacky way of creating a welcome channel if it doesn't exist.
+- "select: false" in model vs removing field with `.select('-password')` vs removing field in `populate` call - what is best approach?
+- Password field may be sent back in some calls - intermediate step - password forwarded along with userInfo then removed later - should exlude first and then forward or overly concerned - password is hashed and protected by jwt
+- You can't pass two parameters to the same route because Express can't differentiate between them. You need to add an extra word in between i.e. `/:channel/:id` vs. `/:channel/id/:id`.
+- `Channel` controller has a very convoluted route because of that and it could be cleaned up.
+- Design choice: sorting with Mongoose vs. sorting `response.data` in the client. In React, use `memo` on the data.
+- Multer and controllers don't mix.
+- Getting file path is difficult - fakepath issues - can't get the file to save - the folder will be created - dir name in Multer middleware.
+- I had issues with the Multer callback syntax. `console.logs` need to be inside functions inside the callbacks.
+- Added `fs.unlink` logic to remove photos that are no longer tied to user profiles.
+- Profile pictures are sourced from [freepik](https://freepik.com).  Check for links below - the majority of pictures belong to the same series.
+- Added `public/uploads` to `.gitignore`.
 
 ## Continued Development
 
-- left many routes open - could add JWTVerifys to all routes vs just the mutate routes (post, put, delete)
-- messages and channels are open - better to have a way to see the chat before signing in
-- need another server (socket.io) ? to have chat group be realtime across users - don't think so - because useEffect will update the view when channels and messages change
-- Promise.all() might be needed for multiple route calls in some functions - async - have to worry about order of results
-- add helmet?
-- testing
-- seeding the database vs using my hacky way of creating a welcome channel if it doesn't exist
-- "select: false" in model vs removing field with .select('-password') vs removing field in populate call - what is best approach?
-- password field may be sent back in some calls - intermediate step - password forwarded along with userInfo then removed later - should exlude first and then forward or overly concerned - password is hashed and protected by jwt
-- can't pass two parameters to same route - express cant differentiate between them - need to add word in between i.e. /:channel/:id vs /:channel/id/:id
-- channel controller has a very convulted route because of that and it could be cleaned up
-- sorting with mongoose vs sorting response.data in the client - in React, use memo on the data.
-- Multer and controllers don't mix
-- controllers considered an anti-pattern ?
-- getting file path is difficult - fakepath issues - can't get the file to save - the folder will be created - dir name in Multer middleware
-- had issues with multer callback syntax - console.logs need to be inside functions inside callbacks
-- Added fs unlink logic to remove photos that are no longer tied to user profiles
-- Read about changes coming to Multer (2.0) so need to look out for that.  
-- Profile pictures are sourced from [freepik](https://freepik.com).  Check for links below - the majority of pictures belong to the same series.
-- Added `public/uploads` to `.gitignore`.  
+- Adding `helmet` will give better security for the server.
+- Testing
+- Multer (2.0) may require significant changes.
+- To upgrade application to Express 5, some other changes may be needed.  I removed `maxAge` from the cookie used and move may need to be done.
 
 ## How To Use
 
